@@ -1,0 +1,87 @@
+generated: '2026-08-09'
+method: searched
+source: https://pypi.org/pypi/chai-guanaco/json
+notes: >-
+  Registry sweep of PyPI, npm, Maven Central, NuGet, pkg.go.dev, RubyGems, Packagist and
+  crates.io. Chai Research has published first-party Python client libraries only. All of
+  them are currently DEPRECATED or WITHDRAWN: `chai-guanaco` explicitly redirects users to
+  `chaiverse`, and `chaiverse` itself no longer resolves on PyPI (both the JSON API and the
+  /simple/ index return 404). No first-party JavaScript, Go, Java, .NET, Ruby, PHP or Rust
+  client library was found. Because no maintained client library is currently installable,
+  this artifact deliberately carries a `Packages` pointer only and NOT an `SDKs` pointer.
+registries_probed:
+- registry: pypi
+  result: 3 first-party projects (2 reachable, 1 withdrawn)
+- registry: npm
+  result: no first-party package (search for "chai-research"/"chaiverse" returns only the
+    unrelated `chai` assertion library and its ecosystem)
+- registry: maven-central
+  result: none
+- registry: nuget
+  result: none
+- registry: pkg.go.dev
+  result: none
+- registry: rubygems
+  result: none
+- registry: packagist
+  result: none
+- registry: crates.io
+  result: none
+packages:
+- language: python
+  registry: pypi
+  name: chai-guanaco
+  version: 1.4.2
+  url: https://pypi.org/project/chai-guanaco/
+  install: pip install chai-guanaco
+  official: true
+  status: deprecated
+  published_by: Chai Research Corp. <hello@chai-research.com>
+  last_release: '2023-12-09'
+  description: Chaiverse model-submission client. Package description now reads "Use
+    chaiverse instead."
+  x-evidence:
+    fetched: '2026-08-09'
+    url: https://pypi.org/pypi/chai-guanaco/json
+    http_status: 200
+- language: python
+  registry: pypi
+  name: chaipy
+  version: 0.4.0
+  url: https://pypi.org/project/chaipy/
+  install: pip install chaipy
+  official: true
+  status: abandoned
+  published_by: Chai <dev@chai.ml>
+  last_release: '2022-02-07'
+  description: A developer interface for creating Chat AIs for the Chai app. Its documented
+    API guide (https://chai.ml/doc/python-api) now returns 404.
+  x-evidence:
+    fetched: '2026-08-09'
+    url: https://pypi.org/pypi/chaipy/json
+    http_status: 200
+- language: python
+  registry: pypi
+  name: chaiverse
+  version: null
+  url: https://pypi.org/project/chaiverse/
+  install: null
+  official: true
+  status: withdrawn
+  description: The Chaiverse developer-platform client that `chai-guanaco` points users to.
+    Referenced across Chai's own material and third-party guides, but no longer published —
+    both the PyPI JSON API and the PEP 503 simple index return 404. The GitHub repository
+    it was published from (chai-research/chaiverse) also returns 404.
+  x-evidence:
+    fetched: '2026-08-09'
+    checks:
+    - url: https://pypi.org/pypi/chaiverse/json
+      http_status: 404
+    - url: https://pypi.org/simple/chaiverse/
+      http_status: 404
+    - url: https://github.com/chai-research/chaiverse
+      http_status: 404
+    note: >-
+      https://pypi.org/project/chaiverse/ returns HTTP 200, but the body is PyPI's
+      "Client Challenge" bot-interstitial, not a project page. A 200 is not evidence —
+      the JSON API and the simple index are the authoritative checks and both 404.

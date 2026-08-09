@@ -1,0 +1,16 @@
+generated: '2026-08-09'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.chai-research.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 19 12:31:32 2026 GMT
+  hsts: false
+domains:
+- domain: chai-research.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject

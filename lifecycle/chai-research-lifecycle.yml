@@ -1,0 +1,122 @@
+generated: '2026-08-09'
+method: probed
+source: live HTTP + DNS probe of every Chai Research / Chaiverse host
+summary: >-
+  Chai Research published a public developer surface and has since withdrawn it without any
+  published deprecation notice, sunset date, or migration path. The Chat API documentation
+  host no longer resolves in DNS, the documented API route returns a bodyless 404 from the
+  load balancer, the Chaiverse Python client has been removed from PyPI, and the Chaiverse
+  GitHub repository is gone. The developer platform itself is still marketed at
+  chaiverse.com, but its console gates every path behind a login. There is no status page
+  and no deprecation policy.
+versioning:
+  scheme: uri-path
+  observed: v1
+  docs: null
+  note: The retired Chat API used a /v1/ path prefix. No versioning policy was found on any
+    live Chai Research property.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: >-
+    No deprecation policy, no RFC 8594 Sunset/Deprecation header support, and no public
+    notice of the Chat API's withdrawal was found. The surface simply stopped answering.
+sla:
+  url: null
+status_page: null
+status_page_probes:
+- url: https://status.chai-research.com/
+  result: DNS does not resolve
+- url: https://status.chaiverse.com/
+  result: DNS does not resolve
+retired_surfaces:
+- name: CHAI Chat API
+  documented_endpoint: POST https://api.chai-research.com/v1/chat/completions
+  documented_auth: X-API_KEY request header, key issued from the docs "credentials" section
+  docs_host: docs.chai-research.com
+  state: withdrawn
+  x-evidence:
+    fetched: '2026-08-09'
+    checks:
+    - url: https://docs.chai-research.com/
+      result: DNS NXDOMAIN — no A record
+    - url: https://api.chai-research.com/v1/chat/completions
+      method: POST
+      http_status: 404
+      note: bodyless 404 from a Google load balancer (via 1.1 google, content-length 0) —
+        no route, not an auth rejection
+    - url: https://api.chai-research.com/
+      http_status: 404
+- name: Chaiverse Python client
+  package: chaiverse (PyPI)
+  state: withdrawn
+  x-evidence:
+    fetched: '2026-08-09'
+    checks:
+    - url: https://pypi.org/pypi/chaiverse/json
+      http_status: 404
+    - url: https://pypi.org/simple/chaiverse/
+      http_status: 404
+    - url: https://github.com/chai-research/chaiverse
+      http_status: 404
+- name: ChaiPy app-bot API guide
+  documented_at: https://chai.ml/doc/python-api
+  state: withdrawn
+  x-evidence:
+    fetched: '2026-08-09'
+    checks:
+    - url: https://chai.ml/doc/python-api
+      http_status: 404
+    - url: https://chai.ml/
+      http_status: 200
+      note: redirects to https://www.chai-research.com/
+live_surfaces:
+- name: Chaiverse developer console
+  url: https://console.chaiverse.com/
+  state: live-but-gated
+  auth: developer key (issued via the Chaiverse Discord bot) or HuggingFace OAuth sign-in
+  x-evidence:
+    fetched: '2026-08-09'
+    checks:
+    - url: https://console.chaiverse.com/openapi.json
+      http_status: 307
+      note: 'Location: /login — every path on this host redirects to the login page'
+    - url: https://console.chaiverse.com/login
+      http_status: 200
+contract_discovery:
+  performed: '2026-08-09'
+  result: no machine-readable contract found on any host
+  probes:
+  - host: api.chai-research.com
+    paths_404:
+    - /openapi.json
+    - /openapi.yaml
+    - /swagger.json
+    - /v1/openapi.json
+    - /api-docs
+    - /docs
+    - /redoc
+    - /rapidoc
+    - /llms.txt
+  - host: www.chai-research.com
+    paths_404:
+    - /openapi.json
+    - /llms.txt
+  - host: www.chaiverse.com
+    paths_404:
+    - /openapi.json
+    - /llms.txt
+    note: this host is an SPA that answers HTTP 200 with the app shell for /docs, /redoc,
+      /api-docs and /leaderboard — those 200s are soft-404s, not documentation
+  - host: auth.chaiverse.com
+    paths_404:
+    - /openapi.json
+    - /docs
+    - /redoc
+    note: FastAPI-shaped JSON service ({"detail":"Not Found"}) with its interactive docs and
+      schema routes disabled
+  - host: console.chaiverse.com
+    result: all paths 307 to /login
+  graphql: no /graphql surface advertised or found
+  mcp: no MCP server published or advertised
+  agent_card: no /.well-known/agent-card.json or /.well-known/agent.json on any host

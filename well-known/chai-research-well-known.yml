@@ -1,0 +1,117 @@
+generated: '2026-08-09'
+method: probed
+source: live HTTP probe of every Chai Research / Chaiverse host
+summary: >-
+  Zero hits. Forty probes across five hosts (the corporate site, the API host, the Chaiverse
+  marketing site, the Chaiverse console and the Chaiverse auth service) returned no
+  /.well-known/ document of any kind — no RFC 9116 security.txt, no OIDC discovery, no RFC
+  8414 authorization-server metadata, no RFC 9727 api-catalog, no ai-plugin.json, and no A2A
+  agent card at either the canonical or the legacy path. Nothing is saved to disk and no
+  `WellKnown`, `SecurityTxt` or `AgentCard` pointer is wired, because none of those documents
+  exists. This file is the record of the probe, not a claim of coverage.
+hosts:
+- host: www.chai-research.com
+  note: corporate site (Webflow-style origin; returns an HTML error page for unknown paths)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: api.chai-research.com
+  note: >-
+    the host the retired public Chat API was documented on. DNS still resolves
+    (34.111.217.120) but the Google load balancer answers a bodyless 404 for every path,
+    including the documented POST /v1/chat/completions.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: www.chaiverse.com
+  note: Chaiverse marketing SPA — serves HTML 200 for many unknown app routes, but returns a
+    real 404 for /.well-known/* paths
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: console.chaiverse.com
+  note: >-
+    Chaiverse developer console. Every path — including every /.well-known/ path — answers
+    HTTP 307 to /login and sets a login_referer cookie. Nothing on this host is reachable
+    anonymously.
+  documents:
+  - path: /.well-known/security.txt
+    status: 307
+  - path: /.well-known/openid-configuration
+    status: 307
+  - path: /.well-known/oauth-authorization-server
+    status: 307
+  - path: /.well-known/oauth-protected-resource
+    status: 307
+  - path: /.well-known/api-catalog
+    status: 307
+  - path: /.well-known/ai-plugin.json
+    status: 307
+  - path: /.well-known/agent-card.json
+    status: 307
+  - path: /.well-known/agent.json
+    status: 307
+- host: auth.chaiverse.com
+  note: >-
+    Chaiverse auth service (JSON API; brokers the HuggingFace OAuth sign-in used by the
+    console). Returns {"detail":"Not Found"} for every probed path — including the OIDC and
+    RFC 8414 discovery documents an OAuth broker would normally publish.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
