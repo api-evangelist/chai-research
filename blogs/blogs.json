@@ -1,0 +1,14 @@
+{
+  "repo": "chai-research",
+  "feeds": [
+    {
+      "source": "https://console.chaiverse.com/login",
+      "feed_url": "https://console.chaiverse.com/login",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-08-15T12:22:01Z"
+}
