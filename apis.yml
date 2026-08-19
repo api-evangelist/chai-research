@@ -12,7 +12,7 @@ url: https://raw.githubusercontent.com/api-evangelist/chai-research/refs/heads/m
 image: https://www.chai-research.com/images/chai-logo.svg
 x-type: company
 x-source: harvest:secondary-market
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-09'
 modified: '2026-08-09'
 tags:
