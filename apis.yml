@@ -9,6 +9,17 @@ description: 'Chai Research Corp. (CHAI) is a Palo Alto consumer AI company buil
   A public Chat API (api.chai-research.com) and a chaiverse pip package were previously
   documented; both have since been withdrawn — see x-coverage.'
 url: https://raw.githubusercontent.com/api-evangelist/chai-research/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.chai-research.com/images/chai-logo.svg
 x-type: company
 x-source: harvest:secondary-market
