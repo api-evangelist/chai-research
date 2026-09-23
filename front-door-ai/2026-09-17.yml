@@ -1,0 +1,34 @@
+# Front Door AI Index — chai-research — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: chai-research
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.chai-research.com
+  final_host: www.chai-research.com
+  ownership: own
+  owner: chai-research
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 29
+  host_score: 29
+  density: 33.11
+  words: 876
+  tiers:
+    agentic: 4
+    core: 22
+    model: 3
+  ambiguous: 1
+  top_terms:
+    AI: 12
+    LLMs: 8
+    chatbot: 2
+    inference: 2
+    ChatGPT: 1
+    GPT: 1
+    Hugging Face: 1
+    artificial intelligence: 1
+    foundation model: 1
+    intelligence: 1
