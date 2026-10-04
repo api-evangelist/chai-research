@@ -45,7 +45,7 @@ tags:
 - Conversational AI
 - Chatbots
 - Consumer Applications
-- Machine-Learning
+- Machine Learning
 - Model Hosting
 tags_raw:
 - Company
@@ -56,6 +56,7 @@ tags_raw:
 - Consumer Applications
 - Machine Learning
 - Model Hosting
+- Machine-Learning
 apis: []
 maintainers:
 - FN: Kin Lane
