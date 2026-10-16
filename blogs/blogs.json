@@ -2,6 +2,13 @@
   "repo": "chai-research",
   "feeds": [
     {
+      "source": "https://www.chai-research.com/news",
+      "feed_url": "https://www.chai-research.com/news",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
       "source": "https://console.chaiverse.com/login",
       "feed_url": "https://console.chaiverse.com/login",
       "title": "",
@@ -10,5 +17,5 @@
     }
   ],
   "post_count": 0,
-  "fetched": "2026-10-03T12:30:02Z"
+  "fetched": "2026-10-10T13:15:00Z"
 }
